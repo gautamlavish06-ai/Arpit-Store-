@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>document.documentElement.classList.add('js')</script>
+
+<!-- SEO: title, description aur canonical apne hisaab se badlo -->
+<title>Arpit Store | Packet Food, Cold Drinks, Snacks, Home Delivery, Aapka Shehar</title>
+<meta name="description" content="Arpit Store, Aapka Shehar: atta, dal, masale, cold drink, toffee, lollipop, chips, biscuits, chocolates, chai coffee aur bahut kuch. Home delivery aur dukaan pe visit, dono available.">
+<link rel="canonical" href="https://www.example.com/">
+<meta name="theme-color" content="#05040D">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Arpit Store | Packet Food, Cold Drinks, Snacks">
+<meta property="og:description" content="Everything packed, everything fresh. Ghar tak.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.google.com; base-uri 'self'; form-action 'none'">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#05040D;
+  --ink:#EEEBFF;
+  --dim:#A9A6C8;
+  --cy:#29E3FF;
+  --glass:rgba(255,255,255,.055);
+  --line:rgba(255,255,255,.14);
+  --grad:linear-gradient(100deg,#FF8A3D 0%,#FF3DDB 26%,#8B5CFF 50%,#3D8BFF 76%,#29E3FF 100%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg);-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{font-family:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);line-height:1.55;overflow-x:hidden;padding-bottom:92px}
+body.lock{overflow:hidden}
+h1,h2,h3,h4{font-family:'Unbounded','Manrope',system-ui,sans-serif;font-weight:600;line-height:1.1}
+a{color:inherit}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--cy);outline-offset:3px}
+section{scroll-margin-top:70px}
+svg.i{width:1.15em;height:1.15em;fill:currentColor;flex:none}
+svg.g{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.glass{background:var(--glass);border:1px solid var(--line);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%)}
+
+/* ---------- background: raat ka aasman + milky way ---------- */
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 85% 75% at 50% 42%,transparent 35%,rgba(5,4,13,.7) 100%)}
+#sky{position:absolute;inset:0;width:100%;height:100%;display:block}
+.spot{position:absolute;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;background:radial-gradient(circle,rgba(41,227,255,.12),rgba(139,92,255,.08) 45%,transparent 70%);transform:translate3d(50vw,38vh,0);transition:transform .35s ease-out}
+.noise{position:absolute;inset:0;opacity:.06;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- loader ---------- */
+#loader{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;transition:opacity .6s ease,visibility .6s ease}
+#loader span{font:800 clamp(2rem,9vw,4.2rem)/1 'Unbounded',system-ui,sans-serif;letter-spacing:-.03em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;animation:pulse 1.2s ease-in-out infinite alternate}
+@keyframes pulse{from{opacity:.45;filter:blur(2px)}to{opacity:1;filter:blur(0)}}
+#loader.done{opacity:0;visibility:hidden}
+
+/* ---------- top bar ---------- */
+.top{position:fixed;top:0;left:0;right:0;z-index:50;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:rgba(5,4,13,.45);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.brand{font:700 1rem 'Unbounded',system-ui,sans-serif;text-decoration:none;white-space:nowrap}
+.top nav{display:flex;gap:24px;font-size:.95rem;font-weight:500;color:var(--dim)}
+.top nav a{text-decoration:none;transition:color .2s}
+.top nav a:hover{color:var(--ink)}
+
+/* ---------- buttons ---------- */
+.btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:.85rem 1.45rem;border-radius:999px;font:600 1rem 'Manrope',system-ui,sans-serif;text-decoration:none;color:var(--ink);cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.btn:hover{transform:translateY(-2px);border-color:rgba(41,227,255,.7);box-shadow:0 0 30px rgba(41,227,255,.28)}
+.btn.wa{background:linear-gradient(100deg,#19d46b,#29E3FF);color:#031a12;border-color:transparent}
+.btn.main{background:linear-gradient(100deg,#8B5CFF,#3D8BFF);color:#fff;border-color:transparent}
+.btn.wa:hover,.btn.main:hover{box-shadow:0 0 34px rgba(100,110,255,.55)}
+
+/* ---------- hero ---------- */
+.hero{min-height:100vh;min-height:100svh;display:grid;place-items:center;text-align:center;padding:96px 5vw 130px;overflow:hidden}
+.hero-in{width:100%;max-width:1100px}
+.hero h1{font-weight:800;font-size:clamp(3rem,9.2vw,8.4rem);letter-spacing:-.045em;line-height:1;padding:.04em .04em .1em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 span{display:inline-block}
+.tag{font-size:clamp(1rem,2.6vw,1.25rem);color:var(--dim);margin:22px auto 28px;max-width:34ch}
+.status{display:inline-flex;align-items:center;gap:10px;padding:.5rem 1.1rem;border-radius:999px;font-size:.92rem;margin-top:22px;--sc:#3DFFA0}
+.status:empty{display:none}
+.status.closed{--sc:#FF4D5E}
+.status b{font-weight:700}
+.status span{color:var(--dim)}
+.sd{width:8px;height:8px;border-radius:50%;background:var(--sc);box-shadow:0 0 10px var(--sc);animation:dotblink 1.6s steps(2,end) infinite}
+
+.js .rv{opacity:0;filter:blur(14px);transform:translateY(12px)}
+.js body.ready .rv{opacity:1;filter:none;transform:none;transition:opacity .9s ease,filter .9s ease,transform .9s ease;transition-delay:calc(var(--i) * 130ms)}
+.js .hero h1.rv{filter:blur(14px) drop-shadow(0 0 44px rgba(139,92,255,.5))}
+.js body.ready .hero h1.rv{filter:blur(0px) drop-shadow(0 0 44px rgba(139,92,255,.5))}
+
+/* ---------- AI hint chips (digital) ---------- */
+.hints{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.hints.above{margin-bottom:18px}
+.hints.below{margin-top:14px}
+.hint{display:inline-flex;align-items:center;gap:9px;padding:.5rem .95rem;border-radius:10px;border-left:2px solid var(--c);font:400 .95rem 'Share Tech Mono',ui-monospace,Menlo,Consolas,monospace;letter-spacing:.02em;color:var(--ink);box-shadow:0 0 22px rgba(0,0,0,.25)}
+.hint .dot{width:7px;height:7px;border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c);animation:dotblink 1.3s steps(2,end) infinite}
+@keyframes dotblink{50%{opacity:.15}}
+.js .hint{opacity:0}
+.js body.ready .hint{animation:hintIn 1.8s both;animation-delay:calc(.6s + var(--i) * .4s)}
+.js body.ready .hint.settled{animation:none;opacity:1;transform:none}
+.js body.ready .hint.settled.glitch{animation:glitch .75s linear}
+@keyframes hintIn{
+  0%{opacity:0;transform:translateX(var(--from))}
+  7%{opacity:1}
+  12%{opacity:.08}
+  18%{opacity:1}
+  24%{opacity:.15}
+  30%{opacity:1;transform:translateX(var(--from));animation-timing-function:cubic-bezier(.16,.8,.24,1)}
+  74%{opacity:1;transform:translateX(0)}
+  80%{opacity:.35}
+  86%{opacity:1}
+  100%{opacity:1;transform:none}
+}
+@keyframes glitch{
+  0%{opacity:1;transform:none}
+  10%{opacity:0}
+  20%{opacity:1;transform:translateX(-4px)}
+  32%{opacity:.2}
+  44%{opacity:1;transform:translateX(4px)}
+  58%{opacity:.4}
+  72%{opacity:1;transform:none}
+  100%{opacity:1;transform:none}
+}
+
+/* ---------- ticker (do rows, ulti direction) ---------- */
+.ticker{display:grid;gap:12px;padding:0 0 20px;margin-top:-40px}
+.tk{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;gap:12px;width:max-content;padding-right:12px;animation:marq 52s linear infinite}
+.tk.rev .track{animation-direction:reverse;animation-duration:60s}
+@keyframes marq{to{transform:translateX(-50%)}}
+.tkc{display:inline-flex;align-items:center;gap:10px;padding:.55rem 1.2rem;border-radius:999px;font-weight:600;font-size:.98rem;white-space:nowrap}
+.tkc::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 12px var(--c)}
+
+/* ---------- shop ---------- */
+.shop{padding:90px 5vw 30px;max-width:1180px;margin:0 auto}
+.shop-head h2{font-size:clamp(1.8rem,5vw,3.2rem);margin-bottom:12px}
+.note{color:var(--dim);margin-bottom:26px;font-size:1.02rem;max-width:52ch}
+.search{display:flex;align-items:center;gap:12px;padding:.85rem 1.3rem;border-radius:999px;max-width:560px;margin-bottom:10px;transition:border-color .2s,box-shadow .2s}
+.search:focus-within{border-color:rgba(41,227,255,.7);box-shadow:0 0 30px rgba(41,227,255,.2)}
+.search svg{color:var(--dim)}
+.search input{flex:1;min-width:0;background:none;border:0;outline:none;color:var(--ink);font:500 1rem 'Manrope',system-ui,sans-serif}
+.search input::placeholder{color:#8b88ad}
+.cat-sec{margin-top:56px}
+.sec-head{margin-bottom:22px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+.sec-head h2{font-size:clamp(1.35rem,3.4vw,2rem)}
+.sec-head p{color:var(--dim)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.tile{--a:139,92,255;position:relative;width:100%;text-align:left;font:inherit;color:inherit;cursor:pointer;padding:24px 22px;border-radius:24px;min-height:210px;display:flex;flex-direction:column;justify-content:space-between;gap:26px;
+  background:radial-gradient(120% 100% at 0% 0%,rgba(var(--a),.22),transparent 60%),var(--glass);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.tile:hover,.tile:focus-visible{transform:translateY(-5px);border-color:rgba(var(--a),.75);box-shadow:0 0 44px rgba(var(--a),.22)}
+.tile:active{transform:scale(.98)}
+.ic{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;flex:none;color:rgb(var(--a));background:rgba(var(--a),.12);border:1px solid rgba(var(--a),.4)}
+.tile h3{font-size:1.05rem;margin-bottom:6px}
+.tile p{font-size:.92rem;color:var(--dim);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tile .cnt{display:inline-block;margin-top:10px;font:400 .82rem 'Share Tech Mono',ui-monospace,Menlo,monospace;color:rgb(var(--a))}
+.plus{position:absolute;top:20px;right:20px;width:30px;height:30px;border-radius:50%;border:1px solid rgba(var(--a),.5);transition:transform .3s ease,background .3s ease}
+.plus::before,.plus::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.6px;background:rgb(var(--a));transform:translate(-50%,-50%)}
+.plus::after{transform:translate(-50%,-50%) rotate(90deg)}
+.tile:hover .plus{transform:rotate(90deg);background:rgba(var(--a),.18)}
+.nomatch{margin-top:30px;padding:26px;border-radius:24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+
+/* ---------- why us ---------- */
+.why{padding:80px 5vw 20px;max-width:1180px;margin:0 auto}
+.why h2{font-size:clamp(1.8rem,5vw,3.2rem);margin-bottom:28px}
+.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.feat{--a:41,227,255;padding:26px 22px;border-radius:24px;border-top:2px solid rgb(var(--a));background:linear-gradient(180deg,rgba(var(--a),.14),transparent 55%),var(--glass)}
+.feat .ic{margin-bottom:18px}
+.feat h3{font-size:1.05rem;margin-bottom:8px}
+.feat p{color:var(--dim);font-size:.96rem}
+
+/* ---------- contact ---------- */
+.contact{padding:90px 5vw 90px;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:20px;align-items:stretch}
+.contact h2{font-size:clamp(1.6rem,4.4vw,2.6rem);margin-bottom:24px}
+.info{padding:34px 30px;border-radius:26px;display:flex;flex-direction:column;justify-content:space-between;gap:26px}
+.info dl{display:grid;gap:18px}
+.info dt{font-size:.9rem;color:var(--dim);margin-bottom:2px}
+.info dd{font-size:1.1rem;font-weight:500}
+.info .btns{justify-content:flex-start}
+.info .status{margin-top:0;align-self:flex-start}
+.map{border-radius:26px;overflow:hidden;min-height:340px;background:var(--glass)}
+.map iframe{width:100%;height:100%;min-height:340px;border:0;display:block;filter:invert(92%) hue-rotate(185deg) saturate(1.5) contrast(.92) brightness(.95)}
+footer{padding:28px 5vw;color:var(--dim);font-size:.92rem;text-align:center;border-top:1px solid var(--line)}
+footer b{color:var(--ink)}
+
+/* ---------- dock ---------- */
+.dock{position:fixed;z-index:60;left:50%;bottom:calc(12px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);display:flex;gap:6px;padding:6px;border-radius:999px;background:rgba(14,12,28,.62);-webkit-backdrop-filter:blur(20px) saturate(150%);backdrop-filter:blur(20px) saturate(150%);border:1px solid var(--line);box-shadow:0 10px 34px rgba(0,0,0,.45)}
+.dock a{display:inline-flex;align-items:center;gap:7px;padding:.72rem 1.05rem;border-radius:999px;text-decoration:none;font-weight:600;font-size:.96rem;color:var(--ink)}
+.dock a.wa{background:linear-gradient(100deg,#19d46b,#29E3FF);color:#031a12}
+.dock a.call{background:rgba(139,92,255,.34)}
+.dock a.visit{background:rgba(255,138,61,.28)}
+
+/* ---------- variety sheet (category tap karne pe) ---------- */
+dialog{--a:139,92,255;border:1px solid rgba(var(--a),.45);padding:0;margin:auto;width:min(760px,94vw);max-width:none;max-height:88vh;color:var(--ink);
+  background:rgba(14,11,30,.84);-webkit-backdrop-filter:blur(26px) saturate(150%);backdrop-filter:blur(26px) saturate(150%);border-radius:28px;
+  box-shadow:0 0 70px rgba(var(--a),.28),0 30px 80px rgba(0,0,0,.55);overflow:auto;overscroll-behavior:contain}
+dialog::backdrop{background:rgba(5,4,13,.64);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+dialog[open]{animation:sheetIn .35s ease both}
+@keyframes sheetIn{from{opacity:0;transform:translateY(26px) scale(.98)}to{opacity:1;transform:none}}
+.sheet-in{padding:26px 26px 24px}
+.sh-head{display:flex;align-items:center;gap:14px}
+.sh-head h3{font-size:1.3rem}
+.sh-head p{font:400 .85rem 'Share Tech Mono',ui-monospace,Menlo,monospace;color:rgb(var(--a));margin-top:5px}
+.x{margin-left:auto;flex:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--glass);color:var(--ink);font-size:1.4rem;line-height:1;cursor:pointer}
+.x:hover{border-color:rgba(var(--a),.7)}
+.intro{margin-top:18px;font:400 1rem/1.5 'Share Tech Mono',ui-monospace,Menlo,monospace;min-height:1.5em}
+.intro.typing::after{content:"_";color:rgb(var(--a));animation:dotblink .8s steps(2,end) infinite}
+.grp{margin-top:24px}
+.grp h4{font-size:.82rem;color:rgb(var(--a));font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+a.chip{display:inline-flex;flex-direction:column;gap:2px;padding:.6rem .95rem;border-radius:16px;text-decoration:none;color:var(--ink);border:1px solid rgba(var(--a),.4);background:rgba(var(--a),.09);animation:chipIn .55s ease-out var(--d,0ms) both;transition:background .2s,border-color .2s,transform .2s}
+a.chip:hover{background:rgba(var(--a),.2);border-color:rgba(var(--a),.85);transform:translateY(-2px)}
+a.chip b{font-weight:600;font-size:.97rem}
+a.chip small{font-size:.8rem;color:var(--dim)}
+@keyframes chipIn{
+  0%{opacity:0;transform:translateX(-20px)}
+  18%{opacity:1}
+  28%{opacity:.12}
+  40%{opacity:1}
+  100%{opacity:1;transform:none}
+}
+.sh-foot{margin-top:30px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.sh-note{color:var(--dim);font-size:.93rem}
+.sh-foot .btns{justify-content:flex-start}
+
+/* ---------- mobile ---------- */
+@media (max-width:820px){
+  .contact{grid-template-columns:1fr;padding:60px 5vw 80px}
+  .top nav{gap:18px}
+}
+@media (max-width:700px){
+  .hero h1{font-size:clamp(3.2rem,19vw,6rem);line-height:.98}
+  .hero h1 span{display:block}
+  .hint{font-size:.85rem;padding:.45rem .8rem}
+}
+@media (max-width:560px){
+  .shop{padding:70px 5vw 20px}
+  .cat-sec{margin-top:44px}
+  .cards{grid-template-columns:repeat(2,1fr);gap:12px}
+  .tile{padding:16px 14px;min-height:178px;gap:18px;border-radius:20px}
+  .ic{width:44px;height:44px;border-radius:14px}
+  .plus{top:14px;right:14px;width:26px;height:26px}
+  .tile h3{font-size:.9rem}
+  .tile p{font-size:.8rem}
+  .tile .cnt{font-size:.76rem}
+  .why{padding:60px 5vw 10px}
+  .dock a{padding:.7rem .85rem;font-size:.9rem}
+  .info{padding:26px 20px}
+  dialog{width:100%;margin:auto 0 0;border-radius:26px 26px 0 0;max-height:86vh}
+  .sheet-in{padding:22px 18px calc(18px + env(safe-area-inset-bottom,0px))}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+  .js .rv,.js .hint{opacity:1;filter:none;transform:none}
+  .track{width:auto;flex-wrap:wrap;justify-content:center;padding:0 5vw}
+}
+</style>
+</head>
+<body>
+
+<div id="loader" aria-hidden="true"><span data-bind="name">Arpit Store</span></div>
+
+<div class="bg" aria-hidden="true">
+  <canvas id="sky"></canvas>
+  <div class="spot" id="spot"></div>
+  <div class="noise"></div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.3 13.9c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.2-3.4-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.8-.1 1.2z"/></symbol>
+  <symbol id="i-call" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.6 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.6 3.6a1 1 0 01-.25 1z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 00-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></symbol>
+
+  <!-- category icons (line style) -->
+  <symbol id="g-bag" viewBox="0 0 24 24"><path d="M7 3h10l1 4H6l1-4z"/><path d="M6 7h12v13a1 1 0 01-1 1H7a1 1 0 01-1-1V7z"/><path d="M9 12h6"/></symbol>
+  <symbol id="g-jar" viewBox="0 0 24 24"><path d="M8 3h8v3H8z"/><path d="M7 6h10v2c1 1 1 2 1 3v8a2 2 0 01-2 2H8a2 2 0 01-2-2v-8c0-1 0-2 1-3V6z"/></symbol>
+  <symbol id="g-bottle" viewBox="0 0 24 24"><path d="M10 2h4v3l1.5 2.5V20a2 2 0 01-2 2h-3a2 2 0 01-2-2V7.5L10 5V2z"/><path d="M8.5 12h7"/></symbol>
+  <symbol id="g-carton" viewBox="0 0 24 24"><path d="M8 3h8l3 4v13a1 1 0 01-1 1H6a1 1 0 01-1-1V7l3-4z"/><path d="M5 7h14M9 13h6"/></symbol>
+  <symbol id="g-box" viewBox="0 0 24 24"><path d="M4 8l8-4 8 4v10l-8 4-8-4V8z"/><path d="M4 8l8 4 8-4M12 12v10"/></symbol>
+  <symbol id="g-cookie" viewBox="0 0 24 24"><path d="M12 3a9 9 0 109 9 5 5 0 01-5-5 4 4 0 01-4-4z"/><path d="M9 9h.01M8 14h.01M13 15h.01M15 11h.01M11 18h.01"/></symbol>
+  <symbol id="g-chips" viewBox="0 0 24 24"><path d="M5 3h14v4H5z"/><path d="M6 7h12v13a1 1 0 01-1 1H7a1 1 0 01-1-1V7z"/><path d="M9 13c1-1.5 2 1.5 3 0s2 1.5 3 0"/></symbol>
+  <symbol id="g-bowl" viewBox="0 0 24 24"><path d="M3 11h18a9 9 0 01-18 0z"/><path d="M8 8c0-2 1-3 1-5M12 8c0-2 1-3 1-5M16 8c0-2 1-3 1-5"/></symbol>
+  <symbol id="g-choc" viewBox="0 0 24 24"><path d="M6 3h12a1 1 0 011 1v16a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M5 9h14M5 15h14M12 3v18"/></symbol>
+  <symbol id="g-candy" viewBox="0 0 24 24"><path d="M12 8a4 4 0 100 8 4 4 0 000-8z"/><path d="M8 12L3 9v6l5-3zM16 12l5-3v6l-5-3z"/></symbol>
+  <symbol id="g-can" viewBox="0 0 24 24"><path d="M8 3h8l1 3v13a2 2 0 01-2 2H9a2 2 0 01-2-2V6l1-3z"/><path d="M7 8h10M7 16h10"/></symbol>
+  <symbol id="g-cup" viewBox="0 0 24 24"><path d="M5 9h12v5a5 5 0 01-5 5h-2a5 5 0 01-5-5V9z"/><path d="M17 11h2a2 2 0 010 4h-2"/><path d="M8 3c0 1 1 1 1 2M12 3c0 1 1 1 1 2"/></symbol>
+  <symbol id="g-diamond" viewBox="0 0 24 24"><path d="M12 3l9 9-9 9-9-9 9-9z"/><path d="M12 8l4 4-4 4-4-4 4-4z"/></symbol>
+  <symbol id="g-nut" viewBox="0 0 24 24"><path d="M12 3c4.5 2.5 6.5 7.5 3.8 12.5C14.5 18 12 20 12 20s-2.5-2-3.8-4.5C5.5 10.5 7.5 5.5 12 3z"/><path d="M12 8v8"/></symbol>
+  <symbol id="g-pickle" viewBox="0 0 24 24"><path d="M8 3h8v3H8z"/><path d="M6 6h12v14a2 2 0 01-2 2H8a2 2 0 01-2-2V6z"/><path d="M9 11h6v5H9z"/></symbol>
+  <!-- feature icons -->
+  <symbol id="g-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7z"/><path d="M7 19a2 2 0 100-4 2 2 0 000 4zM17 19a2 2 0 100-4 2 2 0 000 4z"/></symbol>
+  <symbol id="g-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15"/><path d="M5 19l8-8"/></symbol>
+  <symbol id="g-tag" viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8L3 12z"/><path d="M7.5 8h.01"/></symbol>
+  <symbol id="g-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5z"/><path d="M8 10h8"/></symbol>
+  <symbol id="g-search" viewBox="0 0 24 24"><path d="M11 4a7 7 0 100 14 7 7 0 000-14z"/><path d="M20 20l-4-4"/></symbol>
+</svg>
+
+<header class="top">
+  <a class="brand" href="#home"><span data-bind="name">Arpit Store</span></a>
+  <nav aria-label="Menu">
+    <a href="#saman">Shop</a>
+    <a href="#why">Why us</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home" aria-label="Welcome">
+    <div class="hero-in">
+      <div class="hints above" id="hintsTop"></div>
+      <h1 class="rv" style="--i:0" id="hname"><span>Arpit</span> <span>Store</span></h1>
+      <div class="hints below" id="hintsBottom"></div>
+      <p class="tag rv" style="--i:2" data-bind="tagline">Packet food, cold drinks &amp; more. Delivered ghar tak.</p>
+      <div class="btns rv" style="--i:3">
+        <a class="btn wa" data-link="wa"><svg class="i"><use href="#i-wa"/></svg>WhatsApp</a>
+        <a class="btn main" data-link="call"><svg class="i"><use href="#i-call"/></svg>Contact</a>
+        <a class="btn glass" data-link="map"><svg class="i"><use href="#i-pin"/></svg>Visit</a>
+      </div>
+      <div class="status glass rv" style="--i:4" data-status></div>
+    </div>
+  </section>
+
+  <!-- ===== TICKER ===== -->
+  <div class="ticker" aria-hidden="true">
+    <div class="tk"><div class="track" id="tk1"></div></div>
+    <div class="tk rev"><div class="track" id="tk2"></div></div>
+  </div>
+
+  <!-- ===== SHOP ===== -->
+  <section class="shop" id="saman">
+    <div class="shop-head">
+      <h2>Shop by category</h2>
+      <p class="note">Kisi bhi category pe tap karo, poori variety dikh jaayegi. Ya seedha search karo.</p>
+      <label class="search glass">
+        <svg class="g" aria-hidden="true"><use href="#g-search"/></svg>
+        <input id="q" type="search" placeholder="Search dal, toffee, chips" autocomplete="off" aria-label="Search items">
+      </label>
+    </div>
+    <div id="catRoot"></div>
+    <div class="nomatch glass" id="noMatch" hidden>
+      <p id="noText"></p>
+      <a class="btn wa" id="noWa" target="_blank" rel="noopener noreferrer"><svg class="i"><use href="#i-wa"/></svg>Ask on WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- ===== WHY US ===== -->
+  <section class="why" id="why">
+    <h2>Why Arpit Store</h2>
+    <div class="feats" id="feats"></div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="info glass">
+      <div>
+        <h2>Visit the store</h2>
+        <dl>
+          <div><dt>Address</dt><dd data-bind="address">Shop No. 1, Main Market, Aapka Area, Aapka Shehar</dd></div>
+          <div><dt>Timing</dt><dd data-bind="timing">Roz subah 8 baje se raat 10 baje tak</dd></div>
+          <div><dt>Phone</dt><dd data-bind="phoneShow">+91 99999 99999</dd></div>
+        </dl>
+      </div>
+      <div class="status glass" data-status></div>
+      <div class="btns">
+        <a class="btn wa" data-link="wa"><svg class="i"><use href="#i-wa"/></svg>WhatsApp</a>
+        <a class="btn main" data-link="call"><svg class="i"><use href="#i-call"/></svg>Contact</a>
+        <a class="btn glass" data-link="map"><svg class="i"><use href="#i-pin"/></svg>Visit</a>
+      </div>
+    </div>
+    <div class="map glass"><iframe id="mapframe" title="Store location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </section>
+</main>
+
+<footer><b data-bind="name">Arpit Store</b>, <span data-bind="city">Aapka Shehar</span>. Packet food, cold drinks &amp; more. &copy; <span id="yr">2026</span></footer>
+
+<!-- hamesha dikhne wale 3 buttons -->
+<div class="dock" role="navigation" aria-label="Quick contact">
+  <a class="wa" data-link="wa"><svg class="i"><use href="#i-wa"/></svg>WhatsApp</a>
+  <a class="call" data-link="call"><svg class="i"><use href="#i-call"/></svg>Contact</a>
+  <a class="visit" data-link="map"><svg class="i"><use href="#i-pin"/></svg>Visit</a>
+</div>
+
+<!-- category tap karne pe variety yahan khulti hai -->
+<dialog id="sheet" aria-labelledby="sheetTitle">
+  <div class="sheet-in">
+    <div class="sh-head">
+      <div class="ic" id="sheetIc"></div>
+      <div><h3 id="sheetTitle"></h3><p id="sheetCount"></p></div>
+      <button type="button" class="x" data-close aria-label="Close">&times;</button>
+    </div>
+    <p class="intro" id="sheetIntro"></p>
+    <div id="sheetBody"></div>
+    <div class="sh-foot">
+      <p class="sh-note">Kisi bhi item pe tap karo, WhatsApp pe seedha puchh sakte ho. Kuch aur chahiye? Just message us.</p>
+      <div class="btns">
+        <a class="btn wa" id="sheetWa" target="_blank" rel="noopener noreferrer"><svg class="i"><use href="#i-wa"/></svg>Ask on WhatsApp</a>
+        <button type="button" class="btn glass" data-close>Close</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+/* =====================================================================
+   YAHAN APNI DUKAAN KI DETAILS BHARO. Sabse pehle yehi hissa badalna hai.
+   ===================================================================== */
+const CONFIG = {
+  name:     "Arpit Store",
+  city:     "Aapka Shehar",
+  address:  "Shop No. 1, Main Market, Aapka Area, Aapka Shehar",
+  timing:   "Roz subah 8 baje se raat 10 baje tak",
+  openHour: 8,              // dukaan kholne ka time (24 ghante wala)
+  closeHour:22,             // band hone ka time
+  phone:    "9999999999",   // 10 digit, bina +91 ke
+  whatsapp: "9999999999",   // 10 digit, bina +91 ke
+  waMessage:"Namaste, mujhe saman ke baare me poochna hai.",
+  mapQuery: "Arpit Store, Aapka Area, Aapka Shehar",
+  tagline:  "Packet food, cold drinks & more. Delivered ghar tak.",
+  // naam ke aas-paas aane wale digital hints (4-5 rakho)
+  hints: ["Powered by AI", "Smart Stock Updates", "Fast Home Delivery", "Fresh Sealed Packets", "Next-Gen Local Store"],
+  features: [
+    { i:"g-truck", a:"41,227,255",  t:"Home Delivery",   d:"Aas-paas ke area me ghar tak saman." },
+    { i:"g-leaf",  a:"182,255,61",  t:"Fresh Stock",     d:"Sealed packets, naya maal, regular refill." },
+    { i:"g-tag",   a:"255,196,61",  t:"Fair Pricing",    d:"Honest MRP rate, koi chhupa charge nahi." },
+    { i:"g-chat",  a:"255,61,219",  t:"Quick WhatsApp",  d:"Message karo, jaldi jawab milega." }
+  ]
+};
+
+/* Section ke naam. Har category apna section number (sec) batati hai. */
+const SECTIONS = [
+  { t: "Daily Ration",     s: "Roz ka saman, ek hi jagah." },
+  { t: "Snack Time",       s: "Chai ke saath ya chai ke bina." },
+  { t: "Drinks & Sweets",  s: "Thanda, meetha aur chatpata." }
+];
+
+/* Har category: items "Naam|chhota note" format me. Apne stock ke hisaab se badal lo. */
+const CATEGORIES = [
+ { id:"atta", sec:0, icon:"g-bag", a:"255,138,61", title:"Atta, Dal & Chawal", k:"flour rice pulses roti",
+   intro:"Roti se thali tak, daily meal ka poora saman.",
+   groups:[
+    { g:"Atta & Flour", items:["Gehu Atta|Soft rotis","Multigrain Atta|Healthy mix","Besan|Pakode, kadhi","Maida|Bakery aur samosa","Suji|Halwa, upma","Ragi Atta|Iron-rich millet"] },
+    { g:"Dal & Pulses", items:["Arhar (Toor)|Roz ki dal","Moong|Halki aur light","Moong Chilka|Tadka dal","Masoor|Quick cooking","Chana Dal|Rich taste","Urad Dal|Dal makhani","Rajma|Rajma-chawal time","Kabuli Chana|Chole","Lobia|Protein pack"] },
+    { g:"Chawal & Rice", items:["Basmati|Long grain, khushboo","Sona Masoori|Daily rice","Kolam|Soft aur fluffy","Mota Chawal|Kheer, khichdi","Brown Rice|Fibre-rich"] }
+  ]},
+ { id:"masale", sec:0, icon:"g-jar", a:"255,77,94", title:"Masale & Spices", k:"spices haldi mirch",
+   intro:"Ghar ke khane me asli swaad, ground se whole tak.",
+   groups:[
+    { g:"Ground Spices", items:["Haldi|Colour aur health","Lal Mirch|Teekha tadka","Dhaniya Powder|Everyday curry","Jeera Powder|Raita aur chaat","Amchur|Khatta swaad"] },
+    { g:"Ready Masala", items:["Garam Masala|Final touch","Chaat Masala|Chatpata","Sabzi Masala|Daily sabzi","Chhole Masala|Perfect chole","Pav Bhaji Masala|Street style","Kitchen King|All-rounder"] },
+    { g:"Whole Spices", items:["Jeera|Tadka starter","Sarson|Achar, tadka","Methi Dana|Bitter-sweet","Saunf|Mouth freshener","Elaichi|Chai, mithai","Laung|Strong aroma","Dalchini|Sweet warm spice","Kali Mirch|Pepper"] }
+  ]},
+ { id:"tel", sec:0, icon:"g-bottle", a:"255,196,61", title:"Oil & Ghee", k:"tel oil ghee",
+   intro:"Cooking ka base: sahi tel aur khushboodar ghee.",
+   groups:[
+    { g:"Cooking Oil", items:["Sarson Tel|Kachi ghani style","Refined Oil|Light cooking","Soyabean Oil|Everyday oil","Sunflower Oil|Light aur neutral","Mungfali Tel|Deep fry","Olive Oil|Salad, saute"] },
+    { g:"Ghee", items:["Desi Ghee|Rich aroma","Cow Ghee|Pure aur light"] },
+    { g:"Pack Size", items:["Pouch|Budget friendly","Bottle|Easy pour","Tin|Bulk saving"] }
+  ]},
+ { id:"dairy", sec:0, icon:"g-carton", a:"41,227,255", title:"Doodh & Dairy", k:"milk dahi paneer",
+   intro:"Subah ki chai se raat ke doodh tak.",
+   groups:[
+    { g:"Milk", items:["Full Cream Doodh|Rich chai","Toned Doodh|Daily use","Doodh Powder|Long shelf life"] },
+    { g:"Dairy", items:["Dahi|Thanda aur fresh","Paneer|Sabzi, tikka","Makkhan|Paratha partner","Cheese Slice|Sandwich time","Cheese Spread|Bread ke saath"] },
+    { g:"Cool Sips", items:["Lassi|Meetha ya namkeen","Chaas|Garmi ka saathi"] }
+  ]},
+ { id:"breakfast", sec:0, icon:"g-box", a:"182,255,61", title:"Breakfast", k:"oats cornflakes poha",
+   intro:"Easy morning, quick ready-to-cook.",
+   groups:[
+    { g:"Cereal", items:["Oats|Healthy start","Cornflakes|Crunchy aur quick","Muesli|Fruits aur nuts","Daliya|Desi porridge"] },
+    { g:"Poha & More", items:["Mota Poha|Kanda poha","Patla Poha|Soft aur light","Sabudana|Vrat special","Murmura|Light snack base"] },
+    { g:"Ready Mix", items:["Upma Mix|Just add water","Idli Mix|Soft idlis","Dosa Mix|Crispy dosa","Dhokla Mix|Khaman style","Chilla Mix|Quick protein breakfast"] }
+  ]},
+
+ { id:"biscuits", sec:1, icon:"g-cookie", a:"255,176,32", title:"Biscuits & Cookies", k:"biscuit cookies rusk",
+   intro:"Chai ka best dost: crunchy aur creamy.",
+   groups:[
+    { g:"Tea Time", items:["Glucose Biscuit|Classic chai biscuit","Marie Biscuit|Light aur crisp","Rusk|Dip in chai","Toast|Crunchy bread","Digestive|Whole wheat"] },
+    { g:"Cream & Cookies", items:["Cream Biscuit|Sandwich cream","Chocolate Cookies|Choco chips","Butter Cookies|Melt in mouth","Jam Biscuit|Fruity centre","Cream Wafers|Crispy layers"] },
+    { g:"Salty & Spicy", items:["Salted Cracker|Light salty","Jeera Biscuit|Chatpata jeera","Namkeen Biscuit|Tea snack"] }
+  ]},
+ { id:"namkeen", sec:1, icon:"g-chips", a:"255,61,219", title:"Namkeen & Chips", k:"chips snacks bhujia kurkure",
+   intro:"Crunchy, masaledar aur bilkul timepass.",
+   groups:[
+    { g:"Chips & Wafers", items:["Potato Chips|Classic salted","Masala Chips|Desi tadka","Cream & Onion|Tangy","Tomato Chips|Chatpata","Nachos|Dip ke saath","Corn Puffs|Crunchy masala"] },
+    { g:"Namkeen", items:["Aloo Bhujia|Bikaneri style","Sev|Chaat ka topping","Mixture|Classic mix","Moong Dal|Fried aur salted","Chana Jor Garam|Chatpata","Khatta Meetha|Sweet aur tangy","Peanut Masala|Crunchy","Roasted Chana|Healthy snack"] },
+    { g:"Ready Snacks", items:["Popcorn|Movie time","Makhana Snack|Light roasted","Papad|Fry ya roast","Banana Chips|Kerala style"] }
+  ]},
+ { id:"noodles", sec:1, icon:"g-bowl", a:"61,255,160", title:"Noodles & Pasta", k:"maggi pasta soup seviyan",
+   intro:"2-minute hunger fix, with a desi twist.",
+   groups:[
+    { g:"Instant Noodles", items:["Masala Noodles|Classic favourite","Atta Noodles|Slightly healthier","Cup Noodles|Hot water, ready","Hakka Noodles|Veg stir-fry"] },
+    { g:"Pasta", items:["Macaroni|Kids favourite","Penne|Sauce lover","Spaghetti|Long strands","Fusilli|Spiral fun","Pasta Sauce|Red aur white"] },
+    { g:"Seviyan & Soup", items:["Seviyan|Kheer, upma","Roasted Seviyan|Ready to cook","Tomato Soup|Instant cup","Sweet Corn Soup|Mild aur creamy","Manchow Soup|Spicy kick"] }
+  ]},
+ { id:"choco", sec:1, icon:"g-choc", a:"139,92,255", title:"Chocolates", k:"chocolate cocoa",
+   intro:"Sweet treat for every mood.",
+   groups:[
+    { g:"Bars", items:["Milk Chocolate Bar|Smooth aur sweet","Dark Chocolate|Rich cocoa","Fruit & Nut Bar|Crunchy bites","Caramel Bar|Soft centre","Wafer Chocolate|Crispy layers"] },
+    { g:"Small Treats", items:["Choco Pie|Soft cake bite","Choco Bites|Pop in mouth","Choco Gems|Colourful shells","Cocoa Candy|Chewy"] },
+    { g:"Spreads & Drinks", items:["Choco Spread|Bread ka dost","Cocoa Powder|Bake aur shake","Chocolate Syrup|Milkshake topping","Health Drink Powder|Doodh me mix"] },
+    { g:"Gifting", items:["Gift Box|Festival special"] }
+  ]},
+ { id:"toffee", sec:1, icon:"g-candy", a:"20,214,190", title:"Toffee, Candy & Gum", k:"toffy toffee lollipop lolly goli candy chewing gum mukhwas",
+   intro:"Bachpan wali meethi yaadein, fir se.",
+   groups:[
+    { g:"Toffee & Candy", items:["Milk Toffee|Classic doodh wali","Coffee Toffee|Bold flavour","Eclairs|Chocolate centre","Butterscotch|Creamy","Orange Candy|Citrus pop","Mango Candy|Aam ka swaad","Kaccha Aam Candy|Khatta meetha"] },
+    { g:"Lollipop", items:["Lollipop|Colourful sticks","Fruit Lollipop|Strawberry, orange","Cola Lollipop|Fizzy taste","Chocolate Lollipop|Choco centre"] },
+    { g:"Goli & Chatpata", items:["Imli Goli|Tangy","Mint Goli|Cool breath","Jelly Candy|Soft aur chewy","Aam Papad|Desi fruit bar","Churan Goli|Digestive chatpata","Mukhwas|After-meal freshness"] },
+    { g:"Chewing Gum", items:["Mint Gum|Fresh breath","Fruit Gum|Fruity chew","Bubble Gum|Blow bubbles","Sugar-Free Gum|Light & fresh"] }
+  ]},
+
+ { id:"colddrink", sec:2, icon:"g-can", a:"61,139,255", title:"Cold Drink & Juice", k:"colddrink cooldrink softdrink soda juice thanda",
+   intro:"Chill karo, garmi ho ya party.",
+   groups:[
+    { g:"Cold Drinks", items:["Cola|Classic thanda","Orange Drink|Citrus fizz","Lemon Soda|Fresh nimbu","Clear Lemon Drink|Light fizz","Jeera Soda|Desi digestive","Masala Soda|Chatpata fizz","Soda Water|Mixer aur plain"] },
+    { g:"Juice & Fruit Drinks", items:["Mango Drink|Garmi ka favourite","Packed Juice|Apple, mixed fruit","Guava Drink|Desi taste","Litchi Drink|Sweet aur chilled","Nariyal Pani|Natural coolness"] },
+    { g:"Energy & Water", items:["Energy Drink|Power up","Electrolyte Drink|Quick refresh","Packaged Water|Sealed bottle","Ice Tea|Peach, lemon","Flavoured Milk|Doodh ka twist"] }
+  ]},
+ { id:"chai", sec:2, icon:"g-cup", a:"255,120,90", title:"Chai & Coffee", k:"tea coffee cheeni namak sugar",
+   intro:"Kadak chai ya smooth coffee, your call.",
+   groups:[
+    { g:"Chai", items:["Chai Patti|Daily kadak","Dust Tea|Strong colour","Masala Chai|Elaichi touch","Green Tea|Light aur fresh","Tulsi Tea|Herbal","Instant Tea Premix|Just add water"] },
+    { g:"Coffee", items:["Instant Coffee|Quick cup","Filter Coffee|South style","Coffee Premix|Cafe style","Cold Coffee Mix|Ice cold"] },
+    { g:"Sugar & Salt", items:["Cheeni|Chai ka partner","Gud|Desi meetha","Mishri|Chai aur mouth freshener","Sendha Namak|Vrat special","Iodised Namak|Daily salt"] }
+  ]},
+ { id:"mithai", sec:2, icon:"g-diamond", a:"170,110,255", title:"Mithai & Sweets", k:"mithai sweets laddu halwa",
+   intro:"Festival ho ya bas mood, meetha is always right.",
+   groups:[
+    { g:"Packed Mithai", items:["Soan Papdi|Flaky aur light","Kaju Katli Box|Premium sweet","Besan Laddu Pack|Desi ghee taste","Rasgulla Tin|Spongy aur juicy","Gulab Jamun Tin|Ready to eat"] },
+    { g:"Dessert Mix", items:["Gulab Jamun Mix|Make at home","Kheer Mix|Easy dessert","Suji Halwa Mix|Quick desi dessert"] },
+    { g:"Festival Special", items:["Gift Box|Diwali, Rakhi","Dry Fruit Box|Premium gifting"] }
+  ]},
+ { id:"dryfruit", sec:2, icon:"g-nut", a:"240,180,90", title:"Dry Fruits & Makhana", k:"kaju badam kishmish makhana nuts",
+   intro:"Healthy snack bhi, gifting bhi.",
+   groups:[
+    { g:"Dry Fruits", items:["Kaju|Cashew","Badam|Almonds","Kishmish|Raisins","Akhrot|Walnuts","Pista|Pistachio","Anjeer|Dry figs","Khajoor|Dates"] },
+    { g:"Makhana & Seeds", items:["Makhana|Fox nuts","Chia Seeds|Superfood","Pumpkin Seeds|Crunchy","Sunflower Seeds|Light snack","Trail Mix|Energy mix"] }
+  ]},
+ { id:"achar", sec:2, icon:"g-pickle", a:"120,255,120", title:"Achar, Sauce & Jam", k:"pickle achar ketchup jam chutney",
+   intro:"Thali ka chatpata saathi.",
+   groups:[
+    { g:"Achar & Chutney", items:["Aam Achar|King of achar","Nimbu Achar|Khatta meetha","Mixed Achar|Veg mix","Mirch Achar|Fiery bite","Mint Chutney|Fresh hara","Imli Chutney|Chaat partner"] },
+    { g:"Sauces", items:["Tomato Ketchup|Fries ka best friend","Green Chilli Sauce|Thoda teekha","Soya Sauce|Chinese base","Schezwan Sauce|Spicy desi-Chinese","Mayonnaise|Creamy dip","Pizza Sauce|Pizza base"] },
+    { g:"Spreads", items:["Mixed Fruit Jam|Bread ke saath","Peanut Butter|Creamy ya crunchy","Honey|Natural sweet"] }
+  ]}
+];
+/* ===================================================================== */
+
+var REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function wa(msg){ return "https://wa.me/91" + CONFIG.whatsapp + "?text=" + encodeURIComponent(msg); }
+function norm(s){ return String(s).toLowerCase().replace(/[^a-z0-9]/g, ''); }
+function parseItem(s){ var p = s.split('|'); return { n: p[0], d: p[1] || '' }; }
+function iconSvg(id){ return '<svg class="g" aria-hidden="true"><use href="#' + id + '"/></svg>'; }
+
+/* ---------- setup: CONFIG se sab bhar do ---------- */
+(function setup(){
+  var phoneShow = "+91 " + CONFIG.phone.slice(0,5) + " " + CONFIG.phone.slice(5);
+  var vals = Object.assign({}, CONFIG, { phoneShow: phoneShow });
+  document.querySelectorAll('[data-bind]').forEach(function(el){
+    var v = vals[el.dataset.bind]; if (v) el.textContent = v;
+  });
+
+  // naam: har shabd alag span (phone pe 2 line me aata hai)
+  var h = document.getElementById('hname'); h.textContent = '';
+  CONFIG.name.split(' ').forEach(function(w, i){
+    if (i) h.appendChild(document.createTextNode(' '));
+    var s = document.createElement('span'); s.textContent = w; h.appendChild(s);
+  });
+
+  // digital hints: pehle side pe blink, fir andar aate hain
+  var colors = ['#29E3FF', '#FF8A3D', '#8B5CFF', '#50FFAA', '#FFC43D'];
+  var top = document.getElementById('hintsTop'), bottom = document.getElementById('hintsBottom');
+  CONFIG.hints.forEach(function(t, i){
+    var c = document.createElement('span');
+    c.className = 'hint glass';
+    c.style.setProperty('--c', colors[i % colors.length]);
+    c.style.setProperty('--i', i);
+    c.style.setProperty('--from', (i % 2 === 0 ? '-48vw' : '48vw'));
+    var d = document.createElement('i'); d.className = 'dot';
+    c.appendChild(d); c.appendChild(document.createTextNode(t));
+    c.addEventListener('animationend', function(e){
+      if (e.target !== c) return;
+      if (e.animationName === 'hintIn') c.classList.add('settled');
+      if (e.animationName === 'glitch') c.classList.remove('glitch');
+    });
+    (i < 2 ? top : bottom).appendChild(c);
+  });
+  if (!REDUCE) setInterval(function(){
+    var ok = document.querySelectorAll('.hint.settled:not(.glitch)');
+    if (!ok.length) return;
+    ok[Math.floor(Math.random() * ok.length)].classList.add('glitch');
+  }, 3200);
+
+  var links = {
+    wa:   wa(CONFIG.waMessage),
+    call: "tel:+91" + CONFIG.phone,
+    map:  "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(CONFIG.mapQuery)
+  };
+  document.querySelectorAll('[data-link]').forEach(function(a){
+    var k = a.dataset.link; a.href = links[k];
+    if (k !== 'call') { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+  });
+  document.getElementById('mapframe').src = "https://www.google.com/maps?q=" + encodeURIComponent(CONFIG.mapQuery) + "&output=embed";
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.title = CONFIG.name + " | Packet Food, Cold Drinks, Snacks, Home Delivery, " + CONFIG.city;
+
+  // Google ke liye dukaan ki details (structured data)
+  var ld = document.createElement('script'); ld.type = 'application/ld+json';
+  ld.textContent = JSON.stringify({
+    "@context":"https://schema.org","@type":"GroceryStore",
+    "name":CONFIG.name,"telephone":"+91"+CONFIG.phone,
+    "address":{"@type":"PostalAddress","streetAddress":CONFIG.address,"addressLocality":CONFIG.city,"addressCountry":"IN"},
+    "description":CONFIG.tagline,"openingHours":CONFIG.timing
+  });
+  document.head.appendChild(ld);
+
+  // why-us cards
+  var fr = document.getElementById('feats');
+  CONFIG.features.forEach(function(f){
+    var d = document.createElement('div'); d.className = 'feat'; d.style.setProperty('--a', f.a);
+    d.innerHTML = '<div class="ic">' + iconSvg(f.i) + '</div>';
+    var t = document.createElement('h3'); t.textContent = f.t;
+    var p = document.createElement('p'); p.textContent = f.d;
+    d.appendChild(t); d.appendChild(p); fr.appendChild(d);
+  });
+})();
+
+/* ---------- open / closed status (India time) ---------- */
+(function status(){
+  function hr12(h){ return (h % 12 || 12) + (h >= 12 ? ' PM' : ' AM'); }
+  function render(){
+    var els = document.querySelectorAll('[data-status]');
+    try {
+      var parts = new Intl.DateTimeFormat('en-GB', { timeZone:'Asia/Kolkata', hour:'numeric', minute:'numeric', hour12:false }).formatToParts(new Date());
+      var hh = 0, mm = 0;
+      parts.forEach(function(p){ if (p.type === 'hour') hh = parseInt(p.value, 10) % 24; if (p.type === 'minute') mm = parseInt(p.value, 10); });
+      var mins = hh * 60 + mm;
+      var open = mins >= CONFIG.openHour * 60 && mins < CONFIG.closeHour * 60;
+      els.forEach(function(el){
+        el.classList.toggle('closed', !open);
+        el.innerHTML = '<i class="sd"></i><b>' + (open ? 'Open now' : 'Closed now') + '</b><span>' +
+          (open ? 'closes at ' + hr12(CONFIG.closeHour) : 'opens at ' + hr12(CONFIG.openHour)) + '</span>';
+      });
+    } catch (e) { els.forEach(function(el){ el.textContent = ''; }); }
+  }
+  render(); setInterval(render, 60000);
+})();
+
+/* ---------- ticker ---------- */
+(function ticker(){
+  var rows = [
+    ['Cold Drink','Toffee','Lollipop','Chips','Biscuits','Chocolates','Chai','Coffee','Namkeen','Noodles','Jeera Soda','Mithai'],
+    ['Atta','Dal','Chawal','Masale','Ghee','Dahi','Paneer','Kaju','Badam','Achar','Jam','Makhana']
+  ];
+  var pal = ['#29E3FF','#FF8A3D','#8B5CFF','#50FFAA','#FFC43D','#FF3DDB','#3D8BFF'];
+  rows.forEach(function(words, r){
+    var tr = document.getElementById('tk' + (r + 1));
+    var copies = REDUCE ? 1 : 2;
+    for (var c = 0; c < copies; c++){
+      words.forEach(function(w, i){
+        var s = document.createElement('span'); s.className = 'tkc glass'; s.textContent = w;
+        s.style.setProperty('--c', pal[(i + r * 3) % pal.length]); tr.appendChild(s);
+      });
+    }
+  });
+})();
+
+/* ---------- categories + search ---------- */
+var TILES = [];
+(function catalogue(){
+  var root = document.getElementById('catRoot');
+  var secEls = SECTIONS.map(function(s){
+    var sec = document.createElement('section'); sec.className = 'cat-sec';
+    var head = document.createElement('div'); head.className = 'sec-head';
+    var h2 = document.createElement('h2'); h2.textContent = s.t;
+    var p = document.createElement('p'); p.textContent = s.s;
+    head.appendChild(h2); head.appendChild(p);
+    var grid = document.createElement('div'); grid.className = 'cards';
+    sec.appendChild(head); sec.appendChild(grid); root.appendChild(sec);
+    return { sec: sec, grid: grid };
+  });
+
+  CATEGORIES.forEach(function(cat){
+    var all = [];
+    cat.groups.forEach(function(g){ g.items.forEach(function(it){ all.push(parseItem(it).n); }); });
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'tile glass';
+    b.style.setProperty('--a', cat.a); b.dataset.cat = cat.id;
+    b.setAttribute('aria-haspopup', 'dialog');
+    b.innerHTML = '<span class="plus" aria-hidden="true"></span><div class="ic">' + iconSvg(cat.icon) + '</div>';
+    var body = document.createElement('div');
+    var h3 = document.createElement('h3'); h3.textContent = cat.title;
+    var p = document.createElement('p'); p.textContent = all.slice(0, 3).join(', ') + ' and more';
+    var cnt = document.createElement('span'); cnt.className = 'cnt'; cnt.textContent = all.length + ' varieties';
+    body.appendChild(h3); body.appendChild(p); body.appendChild(cnt); b.appendChild(body);
+    secEls[cat.sec].grid.appendChild(b);
+    TILES.push({ el: b, cat: cat, sec: secEls[cat.sec].sec,
+      hay: norm(cat.title + ' ' + (cat.k || '') + ' ' + cat.groups.map(function(g){ return g.g + ' ' + g.items.map(function(i){ return parseItem(i).n; }).join(' '); }).join(' ')) });
+  });
+
+  var q = document.getElementById('q'), no = document.getElementById('noMatch');
+  var noText = document.getElementById('noText'), noWa = document.getElementById('noWa');
+  q.addEventListener('input', function(){
+    var raw = q.value.trim(), n = norm(raw), shown = 0;
+    TILES.forEach(function(t){ var ok = !n || t.hay.indexOf(n) > -1; t.el.hidden = !ok; if (ok) shown++; });
+    secEls.forEach(function(s){ s.sec.hidden = !s.grid.querySelector('.tile:not([hidden])'); });
+    no.hidden = shown > 0 || !n;
+    if (!no.hidden){
+      noText.textContent = '"' + raw + '" list me nahi mila. Ho sakta hai dukaan me ho, WhatsApp pe poochh lo.';
+      noWa.href = wa('Namaste, kya ' + raw + ' available hai?');
+    }
+  });
+})();
+
+/* ---------- loader ---------- */
+(function loader(){
+  var shown = false;
+  function done(){ if (shown) return; shown = true;
+    document.getElementById('loader').classList.add('done');
+    document.body.classList.add('ready'); }
+  window.addEventListener('load', function(){ setTimeout(done, 900); });
+  setTimeout(done, 3000); // agar kuch slow ho to bhi loader hat jaaye
+})();
+
+/* ---------- cursor / touch ke saath chalne wali halki glow ---------- */
+(function spot(){
+  var el = document.getElementById('spot');
+  window.addEventListener('pointermove', function(e){
+    el.style.transform = 'translate3d(' + e.clientX + 'px,' + e.clientY + 'px,0)';
+  }, { passive:true });
+})();
+
+/* ---------- raat ka aasman: milky way + timtimate taare ---------- */
+(function sky(){
+  var cv = document.getElementById('sky');
+  var ctx = cv.getContext('2d');
+  if (!ctx) return;
+  var W = 0, H = 0, dpr = 1, glow = null, stars = [];
+  var tx = 0, ty = 0, px = 0, py = 0, shoot = null, nextShoot = 6000, last = 0;
+  function rand(a, b){ return a + Math.random() * (b - a); }
+  function gauss(){ return (Math.random() + Math.random() + Math.random() + Math.random() - 2) / 2; }
+
+  function build(){
+    dpr = Math.min(window.devicePixelRatio || 1, 1.75);
+    W = window.innerWidth; H = window.innerHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    var diag = Math.sqrt(W * W + H * H);
+    var ang = W > H ? -0.42 : -1.08;
+    var bandW = Math.min(W, H) * 0.34;
+
+    glow = document.createElement('canvas'); glow.width = cv.width; glow.height = cv.height;
+    var g = glow.getContext('2d');
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    g.translate(W / 2, H / 2); g.rotate(ang);
+    // violet aur blue zyada, pink bahut halka, thoda teal
+    var pal = [[140,110,255],[140,110,255],[90,150,255],[90,150,255],[60,220,210],[255,120,220],[255,235,250]];
+    var i, t, off, rx, ry, a, c, gr;
+    for (i = 0; i < 34; i++){
+      t = -diag / 2 + diag * i / 33 + rand(-20, 20);
+      off = gauss() * bandW * 0.2;
+      rx = diag * rand(0.07, 0.12);
+      ry = bandW * rand(0.55, 0.95);
+      a = rand(0.05, 0.12) * (1 - Math.abs(t) / (diag / 2) * 0.6);
+      c = pal[Math.floor(Math.random() * pal.length)];
+      gr = g.createRadialGradient(0, 0, 0, 0, 0, rx);
+      gr.addColorStop(0, 'rgba(' + c.join(',') + ',' + a + ')');
+      gr.addColorStop(1, 'rgba(' + c.join(',') + ',0)');
+      g.save(); g.translate(t, off); g.scale(1, ry / rx);
+      g.fillStyle = gr; g.beginPath(); g.arc(0, 0, rx, 0, 6.2832); g.fill(); g.restore();
+    }
+    gr = g.createRadialGradient(0, 0, 0, 0, 0, diag * 0.2);
+    gr.addColorStop(0, 'rgba(235,230,255,.10)'); gr.addColorStop(1, 'rgba(235,230,255,0)');
+    g.save(); g.scale(1, bandW * 0.4 / (diag * 0.2)); g.fillStyle = gr;
+    g.beginPath(); g.arc(0, 0, diag * 0.2, 0, 6.2832); g.fill(); g.restore();
+    for (i = 0; i < 6; i++){
+      t = rand(-diag * 0.35, diag * 0.35); rx = diag * rand(0.05, 0.09); ry = bandW * rand(0.1, 0.18);
+      gr = g.createRadialGradient(0, 0, 0, 0, 0, rx);
+      gr.addColorStop(0, 'rgba(5,4,13,.38)'); gr.addColorStop(1, 'rgba(5,4,13,0)');
+      g.save(); g.translate(t, rand(-bandW * 0.12, bandW * 0.12)); g.scale(1, ry / rx);
+      g.fillStyle = gr; g.beginPath(); g.arc(0, 0, rx, 0, 6.2832); g.fill(); g.restore();
+    }
+
+    var N = Math.max(260, Math.min(700, Math.round(W * H / 3000)));
+    var tints = ['255,255,255', '200,220,255', '255,225,210', '210,200,255'];
+    var cosA = Math.cos(ang), sinA = Math.sin(ang);
+    stars = [];
+    for (i = 0; i < N; i++){
+      var x, y;
+      if (Math.random() < 0.7){
+        t = rand(-diag / 2, diag / 2); off = gauss() * bandW * 0.55;
+        x = W / 2 + t * cosA - off * sinA; y = H / 2 + t * sinA + off * cosA;
+      } else { x = rand(0, W); y = rand(0, H); }
+      var r = Math.random() < 0.06 ? rand(1.2, 1.9) : rand(0.3, 0.95);
+      stars.push({ x:x, y:y, r:r, a:rand(0.35, 1), s:rand(0.5, 2.2), p:rand(0, 6.28), c:tints[Math.floor(Math.random() * tints.length)] });
+    }
+  }
+
+  function draw(t, dt){
+    ctx.clearRect(0, 0, W, H);
+    px += (tx - px) * 0.06; py += (ty - py) * 0.06;
+    ctx.drawImage(glow, -12 + px * 0.5, -12 + py * 0.5, W + 24, H + 24);
+    for (var i = 0; i < stars.length; i++){
+      var s = stars[i];
+      var tw = REDUCE ? 0.85 : 0.62 + 0.38 * Math.sin(t * 0.001 * s.s + s.p);
+      var al = s.a * tw;
+      var x = s.x + px * s.r, y = s.y + py * s.r;
+      if (s.r > 1.15){
+        ctx.fillStyle = 'rgba(' + s.c + ',' + (al * 0.14).toFixed(3) + ')';
+        ctx.beginPath(); ctx.arc(x, y, s.r * 3.2, 0, 6.2832); ctx.fill();
+      }
+      ctx.fillStyle = 'rgba(' + s.c + ',' + al.toFixed(3) + ')';
+      ctx.beginPath(); ctx.arc(x, y, s.r, 0, 6.2832); ctx.fill();
+    }
+    if (!REDUCE){
+      if (!shoot && t > nextShoot){
+        shoot = { x: rand(W * 0.25, W * 0.95), y: rand(0, H * 0.3), vx: -rand(520, 760), vy: rand(240, 360), life: 0 };
+      }
+      if (shoot){
+        shoot.life += dt; shoot.x += shoot.vx * dt; shoot.y += shoot.vy * dt;
+        var k = 1 - shoot.life / 0.9;
+        if (k <= 0 || shoot.x < -50 || shoot.y > H + 50){ shoot = null; nextShoot = t + rand(9000, 17000); }
+        else {
+          var gx = ctx.createLinearGradient(shoot.x, shoot.y, shoot.x - shoot.vx * 0.16, shoot.y - shoot.vy * 0.16);
+          gx.addColorStop(0, 'rgba(255,255,255,' + (0.85 * k).toFixed(3) + ')'); gx.addColorStop(1, 'rgba(255,255,255,0)');
+          ctx.strokeStyle = gx; ctx.lineWidth = 1.6; ctx.beginPath();
+          ctx.moveTo(shoot.x, shoot.y); ctx.lineTo(shoot.x - shoot.vx * 0.16, shoot.y - shoot.vy * 0.16); ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function loop(t){
+    requestAnimationFrame(loop);
+    if (document.hidden) return;
+    if (t - last < 32) return; // ~30fps, battery bachane ke liye
+    var dt = Math.min((t - last) / 1000, 0.1); last = t;
+    draw(t, dt);
+  }
+
+  build();
+  var rt;
+  window.addEventListener('resize', function(){
+    clearTimeout(rt);
+    rt = setTimeout(function(){
+      // phone me address bar chhupne se chhota resize hota hai, use ignore karo
+      if (Math.abs(window.innerWidth - W) > 40 || Math.abs(window.innerHeight - H) > H * 0.25){ build(); if (REDUCE) draw(0, 0); }
+    }, 180);
+  });
+  window.addEventListener('pointermove', function(e){
+    tx = -(e.clientX / W - 0.5) * 16; ty = -(e.clientY / H - 0.5) * 16;
+  }, { passive:true });
+  if (REDUCE){ draw(0, 0); } else { requestAnimationFrame(loop); }
+})();
+
+/* ---------- category tap: intro type hota hai, variety ek ek karke aati hai ---------- */
+(function sheet(){
+  var dlg = document.getElementById('sheet'), body = document.getElementById('sheetBody');
+  var ttl = document.getElementById('sheetTitle'), ic = document.getElementById('sheetIc');
+  var cnt = document.getElementById('sheetCount'), intro = document.getElementById('sheetIntro');
+  var waBtn = document.getElementById('sheetWa'), typer = null;
+
+  function type(text){
+    clearInterval(typer); intro.textContent = '';
+    if (REDUCE){ intro.textContent = text; intro.classList.remove('typing'); return; }
+    var i = 0; intro.classList.add('typing');
+    typer = setInterval(function(){
+      i++; intro.textContent = text.slice(0, i);
+      if (i >= text.length){ clearInterval(typer); intro.classList.remove('typing'); }
+    }, 22);
+  }
+
+  function openSheet(tile){
+    var cat = TILES.filter(function(t){ return t.el === tile; })[0].cat;
+    ttl.textContent = cat.title;
+    ic.innerHTML = iconSvg(cat.icon);
+    dlg.style.setProperty('--a', cat.a);
+    body.textContent = '';
+    var n = 0;
+    cat.groups.forEach(function(gr){
+      var sec = document.createElement('section'); sec.className = 'grp';
+      var h = document.createElement('h4'); h.textContent = gr.g; sec.appendChild(h);
+      var box = document.createElement('div'); box.className = 'chips';
+      gr.items.forEach(function(raw){
+        var it = parseItem(raw);
+        var a = document.createElement('a'); a.className = 'chip';
+        a.href = wa('Namaste, ' + it.n + ' available hai? Rate bata dijiye.');
+        a.target = '_blank'; a.rel = 'noopener noreferrer';
+        a.style.setProperty('--d', Math.min(n * 40, 1400) + 'ms'); n++;
+        var b = document.createElement('b'); b.textContent = it.n; a.appendChild(b);
+        if (it.d){ var s = document.createElement('small'); s.textContent = it.d; a.appendChild(s); }
+        box.appendChild(a);
+      });
+      sec.appendChild(box); body.appendChild(sec);
+    });
+    cnt.textContent = n + ' varieties';
+    waBtn.href = wa('Namaste, mujhe ' + cat.title + ' ke baare me poochna hai.');
+    document.body.classList.add('lock');
+    if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+    dlg.scrollTop = 0;
+    type(cat.intro);
+  }
+  function closeSheet(){
+    clearInterval(typer);
+    if (typeof dlg.close === 'function') dlg.close(); else dlg.removeAttribute('open');
+    document.body.classList.remove('lock');
+  }
+  TILES.forEach(function(t){ t.el.addEventListener('click', function(){ openSheet(t.el); }); });
+  dlg.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click', closeSheet); });
+  dlg.addEventListener('click', function(e){ if (e.target === dlg) closeSheet(); }); // bahar tap karne pe band
+  dlg.addEventListener('close', function(){ clearInterval(typer); document.body.classList.remove('lock'); });
+})();
+</script>
+</body>
+</html>
